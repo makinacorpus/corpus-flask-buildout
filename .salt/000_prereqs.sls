@@ -17,6 +17,50 @@ prepreqs-{{cfg.name}}:
       - libsqlite3-dev
       - apache2-utils
       - libcurl4-gnutls-dev
+      - sqlite3
+      #
+      - liblcms2-dev
+      - libsqlite3-dev
+      - apache2-utils
+      - autoconf
+      - automake
+      - build-essential
+      - bzip2
+      - gettext
+      - git
+      - groff
+      - libbz2-dev
+      - libcurl4-openssl-dev
+      - libdb-dev
+      - libgdbm-dev
+      - libreadline-dev
+      - libfreetype6-dev
+      - libsigc++-2.0-dev
+      - libsqlite0-dev
+      - libsqlite3-dev
+      - libtiff5
+      - libtiff5-dev
+      - libwebp5
+      - libwebp-dev
+      - libssl-dev
+      - libtool
+      - libxml2-dev
+      - libxslt1-dev
+      - libopenjpeg-dev
+      - libopenjpeg2
+      - m4
+      - man-db
+      - pkg-config
+      - poppler-utils
+      - python-dev
+      - python-imaging
+      - python-setuptools
+      - tcl8.4
+      - tcl8.4-dev
+      - tcl8.5
+      - tcl8.5-dev
+      - tk8.5-dev
+      - zlib1g-dev      
 
 {{cfg.name}}-dirs:
   file.directory:
