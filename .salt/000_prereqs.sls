@@ -19,6 +19,7 @@ prepreqs-{{cfg.name}}:
       - libcurl4-gnutls-dev
       - sqlite3
       #
+      - liblcms2-2
       - liblcms2-dev
       - libsqlite3-dev
       - apache2-utils
