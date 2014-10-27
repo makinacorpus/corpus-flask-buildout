@@ -11,16 +11,14 @@
 
 prepreqs-{{cfg.name}}:
   pkg.installed:
+    - watch:
+      - user: {{cfg.name}}-www-data
     - pkgs:
-      - nginx
       - sqlite3
-      - libsqlite3-dev
-      - apache2-utils
-      - libcurl4-gnutls-dev
-      - sqlite3
-      #
       - liblcms2-2
       - liblcms2-dev
+      - libcairomm-1.0-dev
+      - libcairo2-dev
       - libsqlite3-dev
       - apache2-utils
       - autoconf
@@ -28,6 +26,8 @@ prepreqs-{{cfg.name}}:
       - build-essential
       - bzip2
       - gettext
+      - libpq-dev
+      - libmysqlclient-dev
       - git
       - groff
       - libbz2-dev
@@ -61,11 +61,15 @@ prepreqs-{{cfg.name}}:
       - tcl8.5
       - tcl8.5-dev
       - tk8.5-dev
-      - zlib1g-dev      
+      - cython
+      - python-numpy
+      - zlib1g-dev
 
 {{cfg.name}}-dirs:
   file.directory:
     - makedirs: true
+    - user: {{cfg.user}}
+    - group: {{cfg.group}}
     - watch:
       - pkg: prepreqs-{{cfg.name}}
       - user: {{cfg.name}}-www-data
@@ -74,6 +78,15 @@ prepreqs-{{cfg.name}}:
       - {{cfg.data_root}}/eggs
       - {{cfg.data_root}}/parts
       - {{data.DATA_FOLDER}}
+
+{% for i in ['cache'] %}
+{{cfg.name}}-l-dirs-{{i}}:
+  file.symlink:
+    - watch:
+      - file: {{cfg.name}}-dirs
+    - name: {{cfg.project_root}}/{{i}}
+    - target: {{cfg.data_root}}/{{i}}
+{%endfor %}
 
 {{cfg.name}}-buildout:
   file.managed:
